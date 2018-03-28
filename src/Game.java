@@ -8,17 +8,17 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by emka15 on 2018-02-21.
+ * Created by Emil Käck on 2018-02-21.
  */
 public class Game extends Canvas {
 
     Image dbImage;
     Graphics dbg;
-
     JFrame frame;
     BufferedImage image;
-    int with = 800, height = 800;
-    Dimension screenSize = new Dimension(with, height);
+    private int with;
+    private int height;
+    Dimension screenSize;
 
     private int[] pieces;
 
@@ -28,6 +28,9 @@ public class Game extends Canvas {
         } catch (IOException e) {
             e.getMessage();
         }
+        with = 800;
+        height = 800;
+        screenSize = new Dimension(with, height);
         frame = new JFrame();
         setPreferredSize(screenSize);
         frame.add(this);
