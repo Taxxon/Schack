@@ -10,39 +10,48 @@ import java.io.IOException;
 /**
  * Created by emka15 on 2018-02-21.
  */
-public class Game extends JFrame {
+public class Game extends Canvas {
 
-    Image dbgImage;
+    Image dbImage;
     Graphics dbg;
 
-    int with = 1000, height = 800;
+    JFrame frame;
+    BufferedImage image;
+    int with = 800, height = 800;
     Dimension screenSize = new Dimension(with, height);
 
     private int[] pieces;
 
     public Game() {
-        this.setTitle("Chess");
-        this.setSize(screenSize);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
-        this.addMouseListener(new ML());
-    }
-
-    public void boardReader() {
-        BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("chess_board.png"));
-            this.dbgImage = img;
+            image = ImageIO.read(new File("board.png"));
         } catch (IOException e) {
             e.getMessage();
         }
+        frame = new JFrame();
+        setPreferredSize(screenSize);
+        frame.add(this);
+        frame.setTitle("Chess");
+        frame.setResizable(false);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addMouseListener(new ML());
+        frame.setVisible(true);
     }
 
-    public void draw(Graphics g){
-        boardReader();
-        g.drawImage(dbgImage, with, height, this);
-        repaint();
+    public void paint(Graphics g){
+        if (dbImage == null) {
+            dbImage = createImage(with, height);
+            if (dbImage == null) {
+                System.out.println("dbImage is still null!");
+                return;
+            } else {
+                dbg = dbImage.getGraphics();
+            }
+        }
+        dbg.setColor(Color.WHITE);
+        dbg.fillRect(0, 0, with, height);
+        g.drawImage(image,0,0, with, height, null);
     }
 
     public static void main(String[] args) {
