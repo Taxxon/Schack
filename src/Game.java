@@ -22,6 +22,9 @@ public class Game extends Canvas {
 
     private int[] pieces;
 
+    /**
+     * Method Game() that sets the values on all needed components
+     */
     public Game() {
         try {
             image = ImageIO.read(new File("board.png"));
@@ -42,6 +45,11 @@ public class Game extends Canvas {
         frame.setVisible(true);
     }
 
+    /**
+     * Method that makes a double buffer so the image dose'nt filmer
+     * It also draws everything on the canvas
+     * @param g public graphics on canvas
+     */
     public void paint(Graphics g){
         if (dbImage == null) {
             dbImage = createImage(with, height);
@@ -57,14 +65,20 @@ public class Game extends Canvas {
         g.drawImage(image,0,0, with, height, null);
     }
 
-    public static void main(String[] args) {
-        Game test = new Game();
-    }
-
     public class ML extends MouseAdapter {
+
+        /**
+         * Method that does something when mouse is pressed.
+         * @param e is the button that is pressed
+         */
         @Override
         public void mousePressed(MouseEvent e){
 
         }
     }
+    
+    public static void main(String[] args) {
+        Game test = new Game();
+    }
+
 }
