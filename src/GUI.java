@@ -35,7 +35,7 @@ public class GUI extends Canvas {
     /**
      * Method Game() that sets the values on all needed components
      */
-    public Game() {
+    public GUI() {
         try {
             image = ImageIO.read(new File("board.png"));
         } catch (IOException e) {
@@ -107,7 +107,7 @@ public class GUI extends Canvas {
     }
 
     public static void main(String[] args) {
-        Game test = new Game();
+        GUI test = new GUI();
     }
 
 }
