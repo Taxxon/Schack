@@ -3,8 +3,8 @@
  */
 public class Board {
 
-    Piece wh;
-    Piece bl;
+    int des_x;
+    int des_y;
 
     private void movePiece(){
 
