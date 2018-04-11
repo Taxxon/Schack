@@ -10,14 +10,14 @@ import java.io.IOException;
 /**
  * Created by Emil Käck on 2018-02-21.
  */
-public class Game extends Canvas {
+public class GUI extends Canvas {
 
     Image dbImage;
     Graphics dbg;
     JFrame frame;
     BufferedImage image;
-    private int with;
-    private int height;
+    private int with = 800;
+    private int height = 800;
     Dimension screenSize;
     String whKing ="♔";
     String whQueen ="♕";
@@ -32,8 +32,6 @@ public class Game extends Canvas {
     String blKnight ="♞";
     String blPawn ="♟";
 
-    private int[] pieces;
-
     /**
      * Method Game() that sets the values on all needed components
      */
@@ -43,8 +41,6 @@ public class Game extends Canvas {
         } catch (IOException e) {
             e.getMessage();
         }
-        with = 800;
-        height = 800;
         screenSize = new Dimension(with, height);
         frame = new JFrame();
         setPreferredSize(screenSize);
@@ -59,7 +55,7 @@ public class Game extends Canvas {
 
     /**
      * Method that makes a double buffer so the image dose'nt filmer
-     * It also draws everything on the canvas
+     * It also draws everything on the canvas (board and pieces)
      * @param g public graphics on canvas
      */
     public void paint(Graphics g){
