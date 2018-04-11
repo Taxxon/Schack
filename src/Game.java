@@ -19,6 +19,7 @@ public class Game extends Canvas {
     private int with;
     private int height;
     Dimension screenSize;
+    char king;
 
     private int[] pieces;
 
@@ -31,6 +32,7 @@ public class Game extends Canvas {
         } catch (IOException e) {
             e.getMessage();
         }
+        king ='♔';
         with = 800;
         height = 800;
         screenSize = new Dimension(with, height);
@@ -76,7 +78,7 @@ public class Game extends Canvas {
 
         }
     }
-    
+
     public static void main(String[] args) {
         Game test = new Game();
     }
