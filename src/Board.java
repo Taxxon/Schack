@@ -6,9 +6,8 @@ public class Board {
     int des_x;
     int des_y;
 
-    private void movePiece(){
-
+    private void movePiece(int x, int y){
+        des_x = x;
+        des_y = y;
     }
-
-    private void
 }

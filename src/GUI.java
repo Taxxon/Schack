@@ -49,7 +49,7 @@ public class GUI extends Canvas {
         frame.setResizable(false);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.addMouseListener(new ML());
+        this.addMouseListener(new ML());
         frame.setVisible(true);
     }
 
@@ -98,11 +98,13 @@ public class GUI extends Canvas {
 
         /**
          * Method that does something when mouse is pressed.
-         * @param e is the button that is pressed
+         * @param e is mouse event
          */
         @Override
         public void mousePressed(MouseEvent e){
-
+           int x = e.getX();
+           int y = e.getY();
+           
         }
     }
 

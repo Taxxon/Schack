@@ -12,10 +12,10 @@ public abstract class Piece  {
         pos_y = y;
     }
 
-    private int getPosition(){
-        
-        return;
+    private int[] getPosition(){
+        int[] pos_xy  =new int[2];
+        pos_xy[0] = pos_x;
+        pos_xy[1] = pos_y;
+        return pos_xy;
     }
-
-
 }
