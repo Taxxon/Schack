@@ -3,7 +3,6 @@
  */
 public abstract class Piece  {
 
-    String colour;
     int pos_x;
     int pos_y;
 
@@ -12,10 +11,11 @@ public abstract class Piece  {
         pos_y = y;
     }
 
-    private int[] getPosition(){
-        int[] pos_xy  =new int[2];
-        pos_xy[0] = pos_x;
-        pos_xy[1] = pos_y;
-        return pos_xy;
+    private int getX(){
+        return pos_x;
+    }
+
+    private int getY(){
+        return pos_y;
     }
 }

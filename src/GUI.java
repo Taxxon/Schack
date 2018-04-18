@@ -104,7 +104,7 @@ public class GUI extends Canvas {
         public void mousePressed(MouseEvent e){
            int x = e.getX();
            int y = e.getY();
-           
+
         }
     }
 
