@@ -1,3 +1,5 @@
+package Games;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +14,7 @@ import java.io.IOException;
  */
 public class GUI extends Canvas {
 
+    Game game;
     Image dbImage;
     Graphics dbg;
     JFrame frame;
@@ -33,7 +36,7 @@ public class GUI extends Canvas {
     String blPawn ="♟";
 
     /**
-     * Method Game() that sets the values on all needed components
+     * Method Games() that sets the values on all needed components
      */
     public GUI() {
         try {
