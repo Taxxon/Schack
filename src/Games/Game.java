@@ -1,5 +1,7 @@
 package Games;
 
+import Pieces.*;
+
 import java.util.ArrayList;
 
 /**
@@ -8,10 +10,15 @@ import java.util.ArrayList;
 public class Game {
 
     private ArrayList pieces;
-    private Piece piece;
+    King king;
+    Queen queen;
+    Bishop bishop;
+    Knight knight;
+    Rook rook;
+    Pawn pawn;
+
 
     Game(){
 
     }
-
 }
