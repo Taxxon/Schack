@@ -3,5 +3,7 @@
  */
 public class Player {
 
-    private String color;
+    private boolean color = true;
+
+
 }

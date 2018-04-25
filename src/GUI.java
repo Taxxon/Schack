@@ -94,7 +94,7 @@ public class GUI extends Canvas {
         }
     }
 
-    public class ML extends MouseAdapter {
+    public class ML extends MouseAdapter{
 
         /**
          * Method that does something when mouse is pressed.
@@ -104,6 +104,8 @@ public class GUI extends Canvas {
         public void mousePressed(MouseEvent e){
            int x = e.getX();
            int y = e.getY();
+           x /= 100;
+           y /= 100;
 
         }
     }
