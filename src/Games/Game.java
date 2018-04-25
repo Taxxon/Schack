@@ -1,7 +1,5 @@
 package Games;
 
-import Pieces.Piece;
-
 import java.util.ArrayList;
 
 /**
@@ -13,7 +11,7 @@ public class Game {
     private Piece piece;
 
     Game(){
-        pieces.add(piece.);
+
     }
 
 }

@@ -1,29 +1,18 @@
 package Pieces;
 
-import java.util.ArrayList;
-
 /**
  * Created by emka15 on 2018-04-25.
  */
 public class Pawn {
 
-    Piece e;
-    private boolean color;
-    ArrayList pawnsWhite;
-    ArrayList pawnBlack;
+    private String whPawn ="♙";
+    private String blPawn ="♟";
 
-    Pawn(boolean color, ArrayList pawnsWhite, ArrayList pawnBlack){
-        this.color = color;
-        this.pawnsWhite = pawnsWhite;
-        this.pawnBlack = pawnBlack;
+    public String getWhPawn(){
+        return whPawn;
     }
 
-    private void check(boolean color, int x, int y){
-        if (color = true){
-
-        }
-        if (color = false){
-
-        }
+    public String getBlPawn(){
+        return blPawn;
     }
 }

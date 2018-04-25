@@ -1,13 +1,12 @@
-package Pieces;
+package Games;
 
-import Games.GUI;
+import Pieces.*;
 
 /**
  * Created by emka15 on 2018-04-11.
  */
 public abstract class Piece {
 
-    GUI paint;
     King king;
     Queen queen;
     Knight knight;
@@ -16,6 +15,7 @@ public abstract class Piece {
     Pawn pawn;
 
     Piece(){
+
     }
 
 }
