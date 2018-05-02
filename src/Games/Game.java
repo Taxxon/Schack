@@ -45,17 +45,19 @@ public class Game {
         for ( int i = 0 ; i < 32 ; i++) {
             if ((pieces.get(i).getX()/100) == x && (pieces.get(i).getY()/100) == y){
                 pieces.get(i).getSymbol();
-                drawPath(g, x, y);
+                Graphics2D g2 = (Graphics2D) g;
+                drawPath(g2, x, y);
             }
         }
     }
 
-    public void drawPath(Graphics g, int x, int y) {
+    public void drawPath(Graphics2D g, int x, int y) {
         int width = 100;
         int height = 100;
-        g.setColor(Color.YELLOW);
         x *= 100;
         y *= 100;
+        g.setColor(Color.YELLOW);
+        g.setStroke(new BasicStroke(5F));
         g.drawRect(x, y, width, height);
     }
 }

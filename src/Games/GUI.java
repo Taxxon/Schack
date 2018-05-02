@@ -22,7 +22,6 @@ public class GUI extends Canvas {
     private int with = 800;
     private int height = 800;
     Dimension screenSize;
-
     /**
      * Method Games() that sets the values on all needed components
      */
