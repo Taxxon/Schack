@@ -22,23 +22,12 @@ public class GUI extends Canvas {
     private int with = 800;
     private int height = 800;
     Dimension screenSize;
-    String whKing ="♔";
-    String whQueen ="♕";
-    String whRook ="♖";
-    String whBishop ="♗";
-    String whKnight ="♘";
-    String whPawn ="♙";
-    String blKing ="♚";
-    String blQueen ="♛";
-    String blRook ="♜";
-    String blBishop ="♝";
-    String blKnight ="♞";
-    String blPawn ="♟";
 
     /**
      * Method Games() that sets the values on all needed components
      */
     public GUI() {
+        game =  new Game();
         try {
             image = ImageIO.read(new File("board.png"));
         } catch (IOException e) {
@@ -75,26 +64,7 @@ public class GUI extends Canvas {
         dbg.fillRect(0, 0, with, height);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
         g.drawImage(image,0,0, with, height, null);
-        g.drawString(whKing, 400, 80);
-        g.drawString(whQueen, 300, 80);
-        g.drawString(blKing, 400, 780);
-        g.drawString(blQueen, 300, 780);
-        for (int i = 100; i <= 600; i += 500){
-            g.drawString(whKnight, i, 80);
-            g.drawString(blKnight, i, 780);
-        }
-        for (int i = 0; i <= 700; i += 700){
-            g.drawString(whRook, i, 80);
-            g.drawString(blRook, i, 780);
-        }
-        for (int i = 200; i <= 500; i += 300){
-            g.drawString(whBishop, i, 80);
-            g.drawString(blBishop, i, 780);
-        }
-        for (int i = 0; i <= 800; i +=100){
-            g.drawString(whPawn, i, 180);
-            g.drawString(blPawn, i, 680);
-        }
+        game.draw(g);
     }
 
     public class ML extends MouseAdapter{

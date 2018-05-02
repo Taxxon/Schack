@@ -3,7 +3,7 @@ package Pieces;
 import Games.Piece;
 
 /**
- * Created by emka15 on 2018-04-25.
+ * Created by Emil Käck on 2018-04-25.
  */
 public class Rook extends Piece {
 

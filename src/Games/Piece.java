@@ -14,6 +14,18 @@ public abstract class Piece {
         this.y = y;
     }
 
+    public String getSymbol() {
+        return Character.toString(symbol);
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
     public void setSymbol(char s) {
         this.symbol = s;
     }
