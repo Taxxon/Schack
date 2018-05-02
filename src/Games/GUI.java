@@ -79,7 +79,9 @@ public class GUI extends Canvas {
            int y = e.getY();
            x /= 100;
            y /= 100;
-
+           game.moves(x,y);
+           game.drawPath(getGraphics(), x, y);
+           System.out.println(x);
         }
     }
 

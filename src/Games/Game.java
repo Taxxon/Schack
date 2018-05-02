@@ -40,4 +40,22 @@ public class Game {
             g.drawString(pieces.get(i).getSymbol(), pieces.get(i).getX(), pieces.get(i).getY());
         }
     }
+
+    public void moves(int x, int y){
+        for ( int i = 0 ; i < 32 ; i++) {
+            if ((pieces.get(i).getX()/100) == x && (pieces.get(i).getY()/100) == y){
+                pieces.get(i).getSymbol();
+
+            }
+        }
+    }
+
+    public void drawPath(Graphics g, int x, int y) {
+        int width = 100;
+        int height = 100;
+        g.setColor(Color.YELLOW);
+        x *= 100;
+        y *= 100;
+        g.drawRect(x, y, width, height);
+    }
 }
