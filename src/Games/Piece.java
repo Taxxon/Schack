@@ -12,7 +12,6 @@ public abstract class Piece {
     public Piece (int x, int y) {
         this.x = x;
         this.y = y;
-
     }
 
     public void setSymbol(char s) {
