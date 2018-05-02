@@ -1,19 +1,19 @@
 package Pieces;
 
+import Games.Piece;
+
 /**
  * Created by emka15 on 2018-04-25.
  */
-public class Queen {
+public class Queen extends Piece {
 
-    private String whQueen ="♕";
-    private String blQueen ="♛";
-
-    public String getWhQueen(){
-        return whQueen;
+    public Queen(int x, int y, char c){
+        super(x, y);
+        if (c == 'b') {
+            setSymbol('♛');
+        }
+        if (c == 'w') {
+            setSymbol('♕');
+        }
     }
-
-    public String getBlQueen(){
-        return blQueen;
-    }
-
 }
