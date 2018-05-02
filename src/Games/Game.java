@@ -41,11 +41,11 @@ public class Game {
         }
     }
 
-    public void moves(int x, int y){
+    public void moves(Graphics g, int x, int y){
         for ( int i = 0 ; i < 32 ; i++) {
             if ((pieces.get(i).getX()/100) == x && (pieces.get(i).getY()/100) == y){
                 pieces.get(i).getSymbol();
-
+                drawPath(g, x, y);
             }
         }
     }
