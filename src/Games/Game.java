@@ -12,7 +12,7 @@ public class Game {
 
     private ArrayList<Piece> pieces = new ArrayList<Piece>();
 
-    Game(){
+    Game() {
         pieces.add(new King(400, 80, 'w'));
         pieces.add(new King(400, 780, 'b'));
         pieces.add(new Queen(300, 80, 'w'));
@@ -41,12 +41,13 @@ public class Game {
         }
     }
 
-    public void moves(Graphics g, int x, int y){
-        for ( int i = 0 ; i < 32 ; i++) {
-            if ((pieces.get(i).getX()/100) == x && (pieces.get(i).getY()/100) == y){
-                pieces.get(i).getSymbol();
-                Graphics2D g2 = (Graphics2D) g;
-                drawPath(g2, x, y);
+    public void moves(Graphics g, int x, int y) {
+        if((x > -1 && x < 8) && (y > -1 && y < 8)) {
+            for ( int i = 0 ; i < 32 ; i++) {
+                if ((pieces.get(i).getX()/100) == x && (pieces.get(i).getY()/100) == y) {
+                    Graphics2D g2 = (Graphics2D) g;
+                    drawPath(g2, x, y);
+                }
             }
         }
     }

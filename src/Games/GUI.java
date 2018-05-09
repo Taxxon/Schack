@@ -22,6 +22,10 @@ public class GUI extends Canvas {
     private int with = 800;
     private int height = 800;
     Dimension screenSize;
+
+    private int selectedPieceX = -1;
+    private int selectedPieceY = -1;
+
     /**
      * Method Games() that sets the values on all needed components
      */
@@ -39,17 +43,19 @@ public class GUI extends Canvas {
         frame.setTitle("Chess");
         frame.setResizable(false);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addMouseListener(new ML());
         frame.setVisible(true);
     }
 
     /**
-     * Method that makes a double buffer so the image dose'nt filmer
+     * Method that makes a double buffer so the image doesn't filmer
      * It also draws everything on the canvas (board and pieces)
      * @param g public graphics on canvas
      */
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
+        //Creates dbimage
         if (dbImage == null) {
             dbImage = createImage(with, height);
             if (dbImage == null) {
@@ -59,11 +65,15 @@ public class GUI extends Canvas {
                 dbg = dbImage.getGraphics();
             }
         }
-        dbg.setColor(Color.WHITE);
-        dbg.fillRect(0, 0, with, height);
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
-        g.drawImage(image,0,0, with, height, null);
-        game.draw(g);
+        dbg.setColor(Color.black);
+        dbg.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+        dbg.drawImage(image,0,0, with, height, null);
+        game.draw(dbg);
+
+        game.moves(dbg, selectedPieceX, selectedPieceY);
+
+        g.drawImage(dbImage, 0, 0, with, height, null);
+
     }
 
     public class ML extends MouseAdapter{
@@ -74,12 +84,14 @@ public class GUI extends Canvas {
          */
         @Override
         public void mousePressed(MouseEvent e){
-           int x = e.getX();
-           int y = e.getY();
-           x /= 100;
-           y /= 100;
-           game.moves(getGraphics(), x, y);
-           System.out.println(x);
+            int x = e.getX();
+            int y = e.getY();
+            x /= 100;
+            y /= 100;
+
+            selectedPieceX = x;
+            selectedPieceY = y;
+            repaint();
         }
     }
 
