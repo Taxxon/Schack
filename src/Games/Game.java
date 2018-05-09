@@ -42,17 +42,27 @@ public class Game {
     }
 
     public void moves(Graphics g, int x, int y) {
+        int index;
+        String symbol;
+        int[] moves = new int[20];
         if((x > -1 && x < 8) && (y > -1 && y < 8)) {
             for ( int i = 0 ; i < 32 ; i++) {
                 if ((pieces.get(i).getX()/100) == x && (pieces.get(i).getY()/100) == y) {
+                    index = i;
                     Graphics2D g2 = (Graphics2D) g;
-                    drawPath(g2, x, y);
+                    symbol = pieces.get(index).getSymbol();
+                    switch (symbol){
+                        case "♟":
+                            moves =((Pawn)pieces.get(index)).showMoves(y);
+
+                    }
+                    drawPath(g2, x, y, moves);
                 }
             }
         }
     }
 
-    public void drawPath(Graphics2D g, int x, int y) {
+    public void drawPath(Graphics2D g, int x, int y, int[] moves) {
         int width = 100;
         int height = 100;
         x *= 100;

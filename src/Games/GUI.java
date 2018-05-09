@@ -77,9 +77,8 @@ public class GUI extends Canvas {
     }
 
     public class ML extends MouseAdapter{
-
         /**
-         * Method that does something when mouse is pressed.
+         * Method that gets the x and y coordinates to check for piece
          * @param e is mouse event
          */
         @Override

@@ -8,6 +8,7 @@ public abstract class Piece {
     int x;
     int y;
     char symbol;
+    Class c;
 
     public Piece (int x, int y) {
         this.x = x;
@@ -29,4 +30,5 @@ public abstract class Piece {
     public void setSymbol(char s) {
         this.symbol = s;
     }
+
 }
