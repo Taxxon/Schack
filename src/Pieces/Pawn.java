@@ -7,6 +7,13 @@ import Games.Piece;
  */
 public class Pawn extends Piece {
 
+    /**
+     * Sets the symbol ont the Pawn depending on color
+     * Also sets the x ant y coordinates
+     * @param x value on x coordinate on Pawn
+     * @param y value on y coordinate on Pawn
+     * @param c color on Pawn
+     */
     public Pawn(int x, int y, char c) {
         super(x, y);
         if (c == 'b') {
@@ -17,7 +24,12 @@ public class Pawn extends Piece {
         }
     }
 
-    public int[] showMoves(int y){
+    /**
+     * Gets the path that the Pawn can move
+     * @param y value on y coordinate on piece you pressed
+     * @return array with the y coordinate that the piece can move to
+     */
+    public int[] getMoves(int y){
         int[] moves = new int[2];
         if (getSymbol().equals("♟")){
             moves[0] = (y-1);

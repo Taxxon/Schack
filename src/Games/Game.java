@@ -12,6 +12,9 @@ public class Game {
 
     private ArrayList<Piece> pieces = new ArrayList<Piece>();
 
+    /**
+     * Creates all pieces and sets them in a ArrayList
+     */
     Game() {
         pieces.add(new King(400, 80, 'w'));
         pieces.add(new King(400, 780, 'b'));
@@ -35,12 +38,22 @@ public class Game {
         }
     }
 
+    /**
+     * Draws all pieces on the board
+     * @param g public graphics on canvas
+     */
     public void draw(Graphics g) {
         for ( int i = 0 ; i < 32 ; i++) {
             g.drawString(pieces.get(i).getSymbol(), pieces.get(i).getX(), pieces.get(i).getY());
         }
     }
 
+    /**
+     *
+     * @param g
+     * @param x
+     * @param y
+     */
     public void moves(Graphics g, int x, int y) {
         int index;
         String symbol;
@@ -55,7 +68,7 @@ public class Game {
                         case ("♟"):
                         case ("♙"):
                             System.out.println(y);
-                            moves = ((Pawn) pieces.get(index)).showMoves(y);
+                            moves = ((Pawn) pieces.get(index)).getMoves(y);
                             System.out.println(moves[0]);
                             drawPath(g2, x, y, moves);
                         case ("♜"):
@@ -66,6 +79,13 @@ public class Game {
         }
     }
 
+    /**
+     * Draws the path for the piece that was pressed
+     * @param g public graphics on canvas
+     * @param x value of x coordinate on piece
+     * @param y value of y coordinate on piece
+     * @param moves array list with the moves the piece can take
+     */
     public void drawPath(Graphics2D g, int x, int y, int[] moves) {
         int width = 100;
         int height = 100;
