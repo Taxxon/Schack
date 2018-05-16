@@ -67,12 +67,12 @@ public class Game {
                     switch (symbol) {
                         case ("♟"):
                         case ("♙"):
-                            System.out.println(y);
-                            moves = ((Pawn) pieces.get(index)).getMoves(y);
-                            System.out.println(moves[0]);
+                            moves = ((Pawn) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                         case ("♜"):
                         case ("♖"):
+                            moves = ((Rook) pieces.get(index)).getMoves(y, x);
+                            drawPath(g2, x, y, moves);
                     }
                 }
             }
@@ -94,9 +94,10 @@ public class Game {
         g.setColor(Color.YELLOW);
         g.setStroke(new BasicStroke(5F));
         g.drawRect(x, y, width, height);
-        for (int i = 0; moves.length > i; i++){
-            moves[i] += (moves[i] * 100);
-            g.drawRect(x, moves[i], width, height);
+        for (int i = 0; moves.length > i; i+=2){
+            moves[i] = (moves[i] * 100);
+            moves[i+1] = (moves[i+1] * 100);
+            g.drawRect(moves[i], moves[i+1], width, height);
         }
     }
 }

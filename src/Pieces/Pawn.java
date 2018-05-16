@@ -29,19 +29,18 @@ public class Pawn extends Piece {
      * @param y value on y coordinate on piece you pressed
      * @return array with the y coordinate that the piece can move to
      */
-    public int[] getMoves(int y){
-        int[] moves = new int[2];
+    public int[] getMoves(int y, int x){
+        int[] moves = new int[4];
+        moves[0] = x;
+        moves[2] = x;
         if (getSymbol().equals("♟")){
-            moves[0] = (y-1);
-            moves[1] = (y-2);
-            System.out.println(moves[0] + moves[1]);
+            moves[1] = (y-1);
+            moves[3] = (y-2);
         } else if (getSymbol().equals("♙")){
-            moves[0] = (y+1);
-            moves[1] = (y+2);
-            System.out.println(moves[0] + moves[1]);
+            moves[1] = (y+1);
+            moves[3] = (y+2);
         } else {
-            System.out.println("Not a pawn");
-            System.out.println(getSymbol());
+            System.out.println("ERROR");
         }
         return moves;
     }
