@@ -19,14 +19,17 @@ public class Pawn extends Piece {
 
     public int[] showMoves(int y){
         int[] moves = new int[2];
-        if (getSymbol() == "♟"){
+        if (getSymbol().equals("♟")){
             moves[0] = (y-1);
             moves[1] = (y-2);
             System.out.println(moves[0] + moves[1]);
-        } else if (getSymbol() == "♙"){
+        } else if (getSymbol().equals("♙")){
             moves[0] = (y+1);
             moves[1] = (y+2);
             System.out.println(moves[0] + moves[1]);
+        } else {
+            System.out.println("Not a pawn");
+            System.out.println(getSymbol());
         }
         return moves;
     }

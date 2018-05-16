@@ -56,6 +56,7 @@ public class Game {
                         case ("♙"):
                             System.out.println(y);
                             moves = ((Pawn) pieces.get(index)).showMoves(y);
+                            System.out.println(moves[0]);
                             drawPath(g2, x, y, moves);
                         case ("♜"):
                         case ("♖"):
