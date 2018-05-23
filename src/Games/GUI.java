@@ -22,7 +22,6 @@ public class GUI extends Canvas {
     private int with = 800;
     private int height = 800;
     Dimension screenSize;
-
     private int selectedPieceX = -1;
     private int selectedPieceY = -1;
 
@@ -55,7 +54,6 @@ public class GUI extends Canvas {
      * @param g public graphics on canvas
      */
     public void paint(Graphics g) {
-        //Creates dbimage
         if (dbImage == null) {
             dbImage = createImage(with, height);
             if (dbImage == null) {
@@ -69,11 +67,8 @@ public class GUI extends Canvas {
         dbg.setFont(new Font("TimesRoman", Font.PLAIN, 100));
         dbg.drawImage(image,0,0, with, height, null);
         game.draw(dbg);
-
         game.moves(dbg, selectedPieceX, selectedPieceY);
-
         g.drawImage(dbImage, 0, 0, with, height, null);
-
     }
 
     public class ML extends MouseAdapter{

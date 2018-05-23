@@ -26,22 +26,24 @@ public class Rook extends Piece {
 
     public int[] getMoves(int y, int x){
         int[] moves = new int[32];
+        int yStart = y;
+        int xStart = x;
+        x = 7;
+        y = 7;
         for (int i = 0; i < 16; i += 2){
-            moves[i] = x;
-            if (y > -1) {
-                moves[i + 1] = y - 1;
-            } else if (y < 8){
-                moves[i + 1] = y + 1;
+            moves[i] = xStart;
+            if (y > -1){
+                moves[i + 1] = y;
+                y -= 1;
             }
         }
         for (int i = 16; i < 32; i += 2){
-            moves[i+1] = y;
-            if (x > -1) {
-                moves[i] = x - 1;
-            } else  if (x < 8){
-                moves[i] = x + 1;
+            moves[i + 1] = yStart;
+            if (x > -1){
+                moves[i] = x;
+                x -= 1;
             }
         }
-        return null;
+        return moves;
     }
 }

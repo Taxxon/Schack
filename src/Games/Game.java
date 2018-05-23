@@ -69,6 +69,7 @@ public class Game {
                         case ("♙"):
                             moves = ((Pawn) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
+                            break;
                         case ("♜"):
                         case ("♖"):
                             moves = ((Rook) pieces.get(index)).getMoves(y, x);
