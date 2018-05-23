@@ -26,7 +26,10 @@ public class Pawn extends Piece {
 
     /**
      * Gets the path that the Pawn can move
-     * @param y value on y coordinate on piece you pressed
+     * Puts in first the x value then the y value in array(coordinate)
+     * The x value and y value have different indexes in the array
+     * @param y value on y coordinate on piece that were pressed
+     * @param x value on x coordinate on piece that were pressed
      * @return array with the y coordinate that the piece can move to
      */
     public int[] getMoves(int y, int x){

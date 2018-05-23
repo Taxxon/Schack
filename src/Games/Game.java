@@ -49,10 +49,11 @@ public class Game {
     }
 
     /**
-     *
-     * @param g
-     * @param x
-     * @param y
+     * Method that looks what piece that were pressed and looks what piece it is
+     * Depending on piece it writes out different path that it can move
+     * @param g Graphics that writes out the path
+     * @param x value on piece that were pressed
+     * @param y value on piece that were pressed
      */
     public void moves(Graphics g, int x, int y) {
         int index;
