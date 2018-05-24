@@ -75,6 +75,10 @@ public class Game {
                         case ("♖"):
                             moves = ((Rook) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
+                        case ("♞"):
+                        case ("♘"):
+                            moves = ((Knight) pieces.get(index)).getMoves(y, x);
+                            drawPath(g2, x, y, moves);
                     }
                 }
             }

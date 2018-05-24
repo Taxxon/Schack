@@ -23,4 +23,9 @@ public class Knight extends Piece {
             setSymbol('♘');
         }
     }
+
+    public int[] getMoves(int x, int y){
+
+        return null;
+    }
 }
