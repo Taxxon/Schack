@@ -81,6 +81,11 @@ public class Game {
                             moves = ((Knight) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
+                        case ("♚"):
+                        case ("♔"):
+                            moves = ((King) pieces.get(index)).getMoves(y, x);
+                            drawPath(g2, x, y, moves);
+                            break;
                     }
                 }
             }

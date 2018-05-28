@@ -28,7 +28,7 @@ public class Rook extends Piece {
 
     /**
      * Gets the path that the Rook can move
-     * Puts in first the x value then the y value (coordinate)
+     * Puts in first the x value then the y value (coordinates)
      * The x value and y value have different indexes in the arrayList
      * @param y value on y coordinate on piece that were pressed
      * @param x value on x coordinate on piece that were pressed
@@ -36,17 +36,17 @@ public class Rook extends Piece {
      */
     public ArrayList<Integer> getMoves(int y, int x){
         ArrayList<Integer> moves = new ArrayList<>();
-        int startX = x;
-        int startY = y;
+        int xStart = x;
+        int yStart = y;
         y = 0;
         x = 0;
         while (x < 8){
             moves.add(x);
-            moves.add(startY);
+            moves.add(yStart);
             x += 1;
         }
         while (y < 8){
-            moves.add(startX);
+            moves.add(xStart);
             moves.add(y);
             y += 1;
         }
