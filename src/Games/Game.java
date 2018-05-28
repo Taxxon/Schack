@@ -58,7 +58,7 @@ public class Game {
     public void moves(Graphics g, int x, int y) {
         int index;
         String symbol;
-        int[] moves;
+        ArrayList<Integer> moves;
         if ((x > -1 && x < 8) && (y > -1 && y < 8)) {
             for (int i = 0; i < 32; i++) {
                 if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
@@ -92,9 +92,9 @@ public class Game {
      * @param g public graphics on canvas
      * @param x value of x coordinate on piece
      * @param y value of y coordinate on piece
-     * @param moves array list with the moves the piece can take
+     * @param moves arraylist with the moves the piece can take
      */
-    public void drawPath(Graphics2D g, int x, int y, int[] moves) {
+    public void drawPath(Graphics2D g, int x, int y, ArrayList<Integer> moves) {
         int width = 100;
         int height = 100;
         x *= 100;
@@ -102,10 +102,11 @@ public class Game {
         g.setColor(Color.YELLOW);
         g.setStroke(new BasicStroke(5F));
         g.drawRect(x, y, width, height);
-        for (int i = 0; moves.length > i; i+=2){
-            moves[i] = (moves[i] * 100);
-            moves[i+1] = (moves[i+1] * 100);
-            g.drawRect(moves[i], moves[i+1], width, height);
+        System.out.println(moves.size());
+        for (int i = 0; moves.size() > i; i += 2){
+            moves.set(i, moves.get(i) * 100);
+            moves.set((i + 1), moves.get(i+1) * 100);
+            g.drawRect((moves.get(i)), (moves.get(i + 1)), width, height);
         }
     }
 }

@@ -2,6 +2,8 @@ package Pieces;
 
 import Games.Piece;
 
+import java.util.ArrayList;
+
 /**
  * Created by Emil Käck on 2018-04-25.
  */
@@ -27,30 +29,26 @@ public class Rook extends Piece {
     /**
      * Gets the path that the Rook can move
      * Puts in first the x value then the y value (coordinate)
-     * The x value and y value have different indexes in the array
+     * The x value and y value have different indexes in the arrayList
      * @param y value on y coordinate on piece that were pressed
      * @param x value on x coordinate on piece that were pressed
-     * @return array with the y coordinate that the piece can move to
+     * @return arrayList with the (x,y) coordinates that the Piece can move to
      */
-    public int[] getMoves(int y, int x){
-        int[] moves = new int[32];
-        int yStart = y;
-        int xStart = x;
-        x = 7;
-        y = 7;
-        for (int i = 0; i < 16; i += 2){
-            moves[i] = xStart;
-            if (y > -1){
-                moves[i + 1] = y;
-                y -= 1;
-            }
+    public ArrayList<Integer> getMoves(int y, int x){
+        ArrayList<Integer> moves = new ArrayList<>();
+        int startX = x;
+        int startY = y;
+        y = 0;
+        x = 0;
+        while (x < 8){
+            moves.add(x);
+            moves.add(startY);
+            x += 1;
         }
-        for (int i = 16; i < 32; i += 2){
-            moves[i + 1] = yStart;
-            if (x > -1){
-                moves[i] = x;
-                x -= 1;
-            }
+        while (y < 8){
+            moves.add(startX);
+            moves.add(y);
+            y += 1;
         }
         return moves;
     }

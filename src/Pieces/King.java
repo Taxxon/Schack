@@ -2,6 +2,8 @@ package Pieces;
 
 import Games.Piece;
 
+import java.util.ArrayList;
+
 /**
  * Created by emka15 on 2018-04-25.
  */
@@ -22,5 +24,11 @@ public class King extends Piece {
         if (c == 'w') {
             setSymbol('♔');
         }
+    }
+
+    public ArrayList getMoves(int y, int x){
+
+
+        return null;
     }
 }

@@ -30,16 +30,14 @@ public class Knight extends Piece {
      * Gets the path that the Knight can move
      * Puts in first the x value then the y value in arrayList(coordinates)
      * The x value and y value have different indexes in the arrayList
-     * Uses arrayList cuz there can be values with 0 in array
-     * Later converts arrayList to array
      * @param y value on y coordinate on piece that were pressed
      * @param x value on x coordinate on piece that were pressed
-     * @return array with the y coordinate that the piece can move to
+     * @return arrayList with the (x,y) coordinates the piece can move to
      */
-    public int[] getMoves(int y, int x){
-        System.out.println(x + " " + y);
+    public ArrayList<Integer> getMoves(int y, int x){
         ArrayList<Integer> moves = new ArrayList<>();
-        if ((x + 2) < 8  && (y + 1) < 8) {
+
+        if (x + 2 < 8) {
             if(y + 1 < 8) {
                 moves.add(x + 2);
                 moves.add(y + 1);
@@ -83,11 +81,6 @@ public class Knight extends Piece {
             }
         }
 
-        int[] movesRet = new int[moves.size()];
-        for(int i = 0; i < moves.size(); i++) {
-            movesRet[i] = moves.get(i);
-        }
-
-        return movesRet;
+        return moves;
     }
 }
