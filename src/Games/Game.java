@@ -95,6 +95,7 @@ public class Game {
                         case ("♗"):
                             moves = ((Bishop) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
+                            moves = checkPath(moves);
                             break;
                     }
                 }
@@ -103,11 +104,13 @@ public class Game {
     }
 
     public ArrayList<Integer> checkPath(ArrayList<Integer> moves){
+        System.out.println("Test");
         for (int x = 0; x < moves.size(); x += 2) {
             for (int i = 0; i < 32; i++) {
-                if ((pieces.get(i).getX() == moves.get(x)) && (pieces.get(i).getY() == moves.get(x + 1))) {
+                if ((pieces.get(i).getX() / 100) == moves.get(x) && (pieces.get(i).getY() / 100) == moves.get(x + 1)) {
+                    System.out.println("test 2");
                     moves.remove(x);
-                    moves.remove(x+1);
+                    moves.remove(x + 1);
                 }
             }
         }
