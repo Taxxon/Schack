@@ -112,7 +112,6 @@ public class Game {
         g.setColor(Color.YELLOW);
         g.setStroke(new BasicStroke(5F));
         g.drawRect(x, y, width, height);
-        System.out.println(moves.size());
         for (int i = 0; moves.size() > i; i += 2){
             moves.set(i, moves.get(i) * 100);
             moves.set((i + 1), moves.get(i+1) * 100);

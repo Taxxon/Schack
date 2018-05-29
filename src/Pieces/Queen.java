@@ -32,7 +32,7 @@ public class Queen extends Piece {
         int yStart = y;
         x = 0;
         y = 0;
-        while (x < 8){
+        while (x < 8) {
             moves.add(x);
             moves.add(yStart);
             x += 1;
@@ -41,6 +41,20 @@ public class Queen extends Piece {
             moves.add(xStart);
             moves.add(y);
             y += 1;
+        }
+        x = xStart;
+        y = yStart;
+        while (x < 8 && y > -1) {
+            x += 1;
+            y -= 1;
+            moves.add(x);
+            moves.add(y);
+        }
+        x = xStart;
+        y = yStart;
+        while (x > -1 && y > -1){
+            x -= 1;
+            y -= 1;
         }
 
         return moves;
