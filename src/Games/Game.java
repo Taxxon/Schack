@@ -102,6 +102,11 @@ public class Game {
         }
     }
 
+    public ArrayList<Integer> checkPath(ArrayList<Integer> moves){
+
+        return moves;
+    }
+
     /**
      * Draws the path for the piece that was pressed
      * @param g public graphics on canvas

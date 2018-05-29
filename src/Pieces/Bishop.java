@@ -68,7 +68,6 @@ public class Bishop extends Piece {
             moves.add(x);
             moves.add(y);
         }
-        System.out.println(x + " " + y);
         return moves;
     }
 }
