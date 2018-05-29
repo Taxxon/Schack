@@ -103,7 +103,14 @@ public class Game {
     }
 
     public ArrayList<Integer> checkPath(ArrayList<Integer> moves){
-
+        for (int x = 0; x < moves.size(); x += 2) {
+            for (int i = 0; i < 32; i++) {
+                if ((pieces.get(i).getX() == moves.get(x)) && (pieces.get(i).getY() == moves.get(x + 1))) {
+                    moves.remove(x);
+                    moves.remove(x+1);
+                }
+            }
+        }
         return moves;
     }
 
