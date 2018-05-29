@@ -55,6 +55,24 @@ public class Queen extends Piece {
         while (x > -1 && y > -1){
             x -= 1;
             y -= 1;
+            moves.add(x);
+            moves.add(y);
+        }
+        x = xStart;
+        y = yStart;
+        while (x < 8 && y < 8) {
+            x += 1;
+            y += 1;
+            moves.add(x);
+            moves.add(y);
+        }
+        x = xStart;
+        y = yStart;
+        while (x > -1 && y < 8){
+            x -= 1;
+            y += 1;
+            moves.add(x);
+            moves.add(y);
         }
 
         return moves;
