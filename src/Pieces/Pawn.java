@@ -36,7 +36,6 @@ public class Pawn extends Piece {
      */
     public ArrayList<Integer> getMoves(int y, int x){
         ArrayList<Integer> moves = new ArrayList<>();
-
         if (getSymbol().equals("♟")){
             moves.add(x);
             moves.add(y - 1);

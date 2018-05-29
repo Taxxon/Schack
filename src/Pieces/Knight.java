@@ -36,7 +36,6 @@ public class Knight extends Piece {
      */
     public ArrayList<Integer> getMoves(int y, int x){
         ArrayList<Integer> moves = new ArrayList<>();
-
         if (x + 2 < 8) {
             if(y + 1 < 8) {
                 moves.add(x + 2);

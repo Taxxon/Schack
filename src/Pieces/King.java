@@ -36,7 +36,6 @@ public class King extends Piece {
      */
     public ArrayList<Integer> getMoves(int y, int x){
         ArrayList<Integer> moves = new ArrayList<>();
-
         int yStart = y;
         int xStart = x;
         if ((x + 1) < 8 && (x + 1) > -1){

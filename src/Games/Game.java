@@ -91,6 +91,11 @@ public class Game {
                             moves = ((Queen) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
+                        case ("♝"):
+                        case ("♗"):
+                            moves = ((Bishop) pieces.get(index)).getMoves(y, x);
+                            drawPath(g2, x, y, moves);
+                            break;
                     }
                 }
             }
