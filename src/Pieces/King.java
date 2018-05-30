@@ -5,7 +5,7 @@ import Games.Piece;
 import java.util.ArrayList;
 
 /**
- * Created by emka15 on 2018-04-25.
+ * Created by Emil Käck on 2018-04-25.
  */
 public class King extends Piece {
 

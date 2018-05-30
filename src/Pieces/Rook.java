@@ -40,11 +40,12 @@ public class Rook extends Piece {
         int yStart = y;
         y = 0;
         x = 0;
-        while (x < 8){
+        while(x < 8){
             moves.add(x);
             moves.add(yStart);
             x += 1;
         }
+
         while (y < 8){
             moves.add(xStart);
             moves.add(y);

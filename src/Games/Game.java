@@ -14,6 +14,7 @@ public class Game {
 
     /**
      * Creates all pieces and sets them in a ArrayList
+     * Every piece have a x value, y value and what they are(piece value)
      */
     Game() {
         pieces.add(new King(400, 80, 'w'));
@@ -103,6 +104,12 @@ public class Game {
         }
     }
 
+    /**
+     * NOT WORKING!
+     * NOT DONE!
+     * @param moves
+     * @return
+     */
     public ArrayList<Integer> checkPath(ArrayList<Integer> moves){
         System.out.println("Test");
         for (int x = 0; x < moves.size(); x += 2) {
@@ -115,6 +122,15 @@ public class Game {
             }
         }
         return moves;
+    }
+
+    /**
+     * NOT WORKING!
+     * NOT DONE!
+     * @param moves
+     */
+    public void movePiece(ArrayList<Integer> moves){
+
     }
 
     /**
