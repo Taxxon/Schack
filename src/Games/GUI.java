@@ -82,7 +82,6 @@ public class GUI extends Canvas {
             int y = e.getY();
             x /= 100;
             y /= 100;
-
             selectedPieceX = x;
             selectedPieceY = y;
             repaint();
