@@ -97,8 +97,9 @@ public class Game {
                             drawPath(g2, x, y, moves);
                             break;
                     }
-                }else movePiece(moves, x, y);
+                }
             }
+            movePiece(moves, x, y);
         }
     }
 
