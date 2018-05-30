@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class Game {
 
     private ArrayList<Piece> pieces = new ArrayList<Piece>();
-
+    private ArrayList<Integer> moves = new ArrayList();
+    private int index;
     /**
      * Creates all pieces and sets them in a ArrayList
      * Every piece have a x value, y value and what they are(piece value)
@@ -57,49 +58,46 @@ public class Game {
      * @param y value on piece that were pressed
      */
     public void moves(Graphics g, int x, int y) {
-        int index;
         String symbol;
-        ArrayList<Integer> moves;
         if ((x > -1 && x < 8) && (y > -1 && y < 8)) {
             for (int i = 0; i < 32; i++) {
                 if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
-                    index = i;
+                    this.index = i;
                     Graphics2D g2 = (Graphics2D) g;
                     symbol = pieces.get(index).getSymbol();
                     switch (symbol) {
                         case ("♟"):
                         case ("♙"):
-                            moves = ((Pawn) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Pawn) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♜"):
                         case ("♖"):
-                            moves = ((Rook) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Rook) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♞"):
                         case ("♘"):
-                            moves = ((Knight) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Knight) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♚"):
                         case ("♔"):
-                            moves = ((King) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((King) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♛"):
                         case ("♕"):
-                            moves = ((Queen) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Queen) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♝"):
                         case ("♗"):
-                            moves = ((Bishop) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Bishop) pieces.get(index)).getMoves(y, x);
                             drawPath(g2, x, y, moves);
-                            moves = checkPath(moves);
                             break;
                     }
-                }
+                }else movePiece(moves, x, y);
             }
         }
     }
@@ -125,12 +123,23 @@ public class Game {
     }
 
     /**
-     * NOT WORKING!
-     * NOT DONE!
-     * @param moves
+     * Moves the piece were i can depending on were it can move
+     * If piece can't move to the (x,y) that were pressed id dose'nt move
+     * @param moves value of (x,y) coordinates the piece can move to
+     * @param x coordinate of x that were pressed
+     * @param y coordinate of y that were pressed
      */
-    public void movePiece(ArrayList<Integer> moves){
-
+    public void movePiece(ArrayList<Integer> moves, int x, int y){
+        for (int i = 0; i < moves.size(); i += 2){
+            System.out.println(moves.get(i) + " " + moves.get(i+1));
+            System.out.println(x);
+            System.out.println(y);
+            if ((moves.get(i) / 100) == x && (moves.get(i + 1) / 100) == y){
+                System.out.println("TEST");
+                pieces.get(this.index).setX(moves.get(i));
+                pieces.get(this.index).setY(moves.get(i+1) + 80);
+            }
+        }
     }
 
     /**

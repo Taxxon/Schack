@@ -29,10 +29,27 @@ public abstract class Piece {
     }
 
     /**
+     * Sets the x coordinate value
+     * @param x coordinate that piece move to
+     */
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    /**
+     * Sets the y coordinate value
+     * @param y coordinate that piece move to
+     */
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    /**
      * Gets the y coordinate value
      * @return y coordinate
      */
     public int getY() {
+
         return y;
     }
 
