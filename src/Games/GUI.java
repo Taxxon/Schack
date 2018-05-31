@@ -66,8 +66,8 @@ public class GUI extends Canvas {
         dbg.setColor(Color.black);
         dbg.setFont(new Font("TimesRoman", Font.PLAIN, 100));
         dbg.drawImage(image,0,0, with, height, null);
-        game.draw(dbg);
         game.moves(dbg, selectedPieceX, selectedPieceY);
+        game.draw(dbg);
         g.drawImage(dbImage, 0, 0, with, height, null);
     }
 

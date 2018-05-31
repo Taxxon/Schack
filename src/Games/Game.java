@@ -24,7 +24,7 @@ public class Game {
         pieces.add(new Queen(300, 780, 'b'));
         for (int i = 100; i <= 600; i += 500){
            pieces.add(new Knight(i, 80, 'w'));
-           pieces.add(new Knight(i, 780, 'w'));
+           pieces.add(new Knight(i, 780, 'b'));
         }
         for (int i = 0; i <= 700; i += 700){
             pieces.add(new Rook(i, 80, 'w'));
@@ -45,6 +45,7 @@ public class Game {
      * @param g public graphics on canvas
      */
     public void draw(Graphics g) {
+        g.setColor(Color.black);
         for ( int i = 0 ; i < 32 ; i++) {
             g.drawString(pieces.get(i).getSymbol(), pieces.get(i).getX(), pieces.get(i).getY());
         }
@@ -132,11 +133,7 @@ public class Game {
      */
     public void movePiece(ArrayList<Integer> moves, int x, int y){
         for (int i = 0; i < moves.size(); i += 2){
-            System.out.println(moves.get(i) + " " + moves.get(i+1));
-            System.out.println(x);
-            System.out.println(y);
             if ((moves.get(i) / 100) == x && (moves.get(i + 1) / 100) == y){
-                System.out.println("TEST");
                 pieces.get(this.index).setX(moves.get(i));
                 pieces.get(this.index).setY(moves.get(i+1) + 80);
             }
