@@ -89,7 +89,7 @@ public class Game {
                             break;
                         case ("♛"):
                         case ("♕"):
-                            this.moves = ((Queen) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Queen) pieces.get(index)).getMoves(y, x, pieces);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♝"):
