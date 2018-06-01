@@ -34,38 +34,53 @@ public class Bishop extends Piece {
      * @param x value on x coordinate on piece that were pressed
      * @return arrayList with the (x,y) coordinates that the Piece can move to
      */
-    public ArrayList<Integer> getMoves(int y, int x){
+    public ArrayList<Integer> getMoves(int y, int x, ArrayList<Piece> pieces){
         ArrayList<Integer> moves = new ArrayList<>();
         int xStart = x;
         int yStart = y;
-        while ((x + 1) < 8 && (y + 1) < 8){
+        outerloop:
+        while ((x + 1) < 8 && (y + 1) < 8) {
             x += 1;
             y += 1;
+            if (checkPath(pieces, x, y) == false){
+                break outerloop;
+            }
             moves.add(x);
             moves.add(y);
-
         }
         x = xStart;
         y = yStart;
+        outerloop:
         while ((x - 1) > -1 && (y + 1) < 8){
             x -= 1;
             y += 1;
+            if (checkPath(pieces, x, y) == false){
+                break outerloop;
+            }
             moves.add(x);
             moves.add(y);
         }
         x = xStart;
         y = yStart;
+        outerloop:
         while ((x + 1) < 8 && (y - 1) > -1){
             x += 1;
             y -= 1;
+            if (checkPath(pieces, x, y) == false){
+                break outerloop;
+            }
             moves.add(x);
             moves.add(y);
         }
         x = xStart;
         y = yStart;
+        outerloop:
         while ((x - 1) > -1 && (y - 1) > -1){
             x -= 1;
             y -= 1;
+            if (checkPath(pieces, x, y) == false){
+                break outerloop;
+            }
             moves.add(x);
             moves.add(y);
         }

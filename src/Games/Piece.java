@@ -1,5 +1,7 @@
 package Games;
 
+import java.util.ArrayList;
+
 /**
  * Created by Emil Käck on 2018-04-11.
  */
@@ -69,4 +71,13 @@ public abstract class Piece {
         this.symbol = s;
     }
 
+    public boolean checkPath(ArrayList<Piece> pieces, int x, int y){
+        boolean canMove = true;
+        for (int i = 0; i < pieces.size(); i++) {
+            if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
+                canMove = false;
+            }
+        }
+        return canMove;
+    }
 }

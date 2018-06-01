@@ -61,7 +61,7 @@ public class Game {
     public void moves(Graphics g, int x, int y) {
         String symbol;
         if ((x > -1 && x < 8) && (y > -1 && y < 8)) {
-            for (int i = 0; i < 32; i++) {
+            for (int i = 0; i < pieces.size(); i++) {
                 if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
                     this.index = i;
                     Graphics2D g2 = (Graphics2D) g;
@@ -94,7 +94,7 @@ public class Game {
                             break;
                         case ("♝"):
                         case ("♗"):
-                            this.moves = ((Bishop) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Bishop) pieces.get(index)).getMoves(y, x, pieces);
                             drawPath(g2, x, y, moves);
                             break;
                     }
@@ -110,18 +110,14 @@ public class Game {
      * @param moves
      * @return
      */
-    public ArrayList<Integer> checkPath(ArrayList<Integer> moves){
-        System.out.println("Test");
-        for (int x = 0; x < moves.size(); x += 2) {
-            for (int i = 0; i < 32; i++) {
-                if ((pieces.get(i).getX() / 100) == moves.get(x) && (pieces.get(i).getY() / 100) == moves.get(x + 1)) {
-                    System.out.println("test 2");
-                    moves.remove(x);
-                    moves.remove(x + 1);
-                }
+    public boolean checkPath(ArrayList<Integer> moves, int x, int y){
+        boolean canMove = true;
+        for (int i = 0; i < pieces.size(); i++) {
+            if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
+
             }
         }
-        return moves;
+        return canMove;
     }
 
     /**
@@ -136,7 +132,6 @@ public class Game {
             if ((moves.get(i) / 100) == x && (moves.get(i + 1) / 100) == y){
                 pieces.get(this.index).setX(moves.get(i));
                 pieces.get(this.index).setY(moves.get(i + 1) + 80);
-                System.out.println("CLEAR");
                 moves.clear();
             }
         }
