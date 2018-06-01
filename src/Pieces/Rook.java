@@ -34,26 +34,47 @@ public class Rook extends Piece {
      * @param x value on x coordinate on piece that were pressed
      * @return arrayList with the (x,y) coordinates that the Piece can move to
      */
-    public ArrayList<Integer> getMoves(int y, int x){
+    public ArrayList<Integer> getMoves(int y, int x, ArrayList<Piece> pieces){
         ArrayList<Integer> moves = new ArrayList<>();
         int xStart = x;
         int yStart = y;
-        y = 0;
-        x = 0;
+        outerloop:
         while(x < 8){
-            if (x != xStart && y != yStart) {
-                moves.add(x);
-                moves.add(yStart);
-            }
             x += 1;
-        }
-
-        while (y < 8){
-            if (x != xStart && y != yStart) {
-                moves.add(xStart);
-                moves.add(y);
+            if (checkPath(pieces, x, yStart) == false){
+                break outerloop;
             }
+            moves.add(x);
+            moves.add(yStart);
+        }
+        x = xStart;
+        outerloop:
+        while(x > -1){
+            x -= 1;
+            if (checkPath(pieces, x, yStart) == false){
+                break outerloop;
+            }
+            moves.add(x);
+            moves.add(yStart);
+        }
+        outerloop:
+        while (y < 8){
             y += 1;
+            if (checkPath(pieces, xStart, y) == false){
+                break outerloop;
+            }
+            moves.add(xStart);
+            moves.add(y);
+        }
+        y = yStart;
+        outerloop:
+        while (y > -1){
+            y -= 1;
+            if (checkPath(pieces, xStart, y) == false){
+                break outerloop;
+            }
+            moves.add(xStart);
+            moves.add(y);
         }
         return moves;
     }

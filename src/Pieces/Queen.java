@@ -38,8 +38,6 @@ public class Queen extends Piece {
         ArrayList<Integer> moves = new ArrayList<>();
         int xStart = x;
         int yStart = y;
-        x = 0;
-        y = 0;
         while (x < 8) {
             if (x != xStart && y != yStart) {
                 moves.add(x);

@@ -74,7 +74,7 @@ public class Game {
                             break;
                         case ("♜"):
                         case ("♖"):
-                            this.moves = ((Rook) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Rook) pieces.get(index)).getMoves(y, x, pieces);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♞"):
@@ -102,22 +102,6 @@ public class Game {
             }
             movePiece(moves, x, y);
         }
-    }
-
-    /**
-     * NOT WORKING!
-     * NOT DONE!
-     * @param moves
-     * @return
-     */
-    public boolean checkPath(ArrayList<Integer> moves, int x, int y){
-        boolean canMove = true;
-        for (int i = 0; i < pieces.size(); i++) {
-            if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
-
-            }
-        }
-        return canMove;
     }
 
     /**
