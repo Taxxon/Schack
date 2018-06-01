@@ -41,14 +41,18 @@ public class Rook extends Piece {
         y = 0;
         x = 0;
         while(x < 8){
-            moves.add(x);
-            moves.add(yStart);
+            if (x != xStart && y != yStart) {
+                moves.add(x);
+                moves.add(yStart);
+            }
             x += 1;
         }
 
         while (y < 8){
-            moves.add(xStart);
-            moves.add(y);
+            if (x != xStart && y != yStart) {
+                moves.add(xStart);
+                moves.add(y);
+            }
             y += 1;
         }
         return moves;

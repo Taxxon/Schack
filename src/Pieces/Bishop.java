@@ -43,6 +43,7 @@ public class Bishop extends Piece {
             y += 1;
             moves.add(x);
             moves.add(y);
+
         }
         x = xStart;
         y = yStart;

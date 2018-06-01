@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Game {
 
-    private ArrayList<Piece> pieces = new ArrayList<Piece>();
+    private ArrayList<Piece> pieces = new ArrayList<>();
     private ArrayList<Integer> moves = new ArrayList();
     private int index;
     /**
@@ -135,7 +135,9 @@ public class Game {
         for (int i = 0; i < moves.size(); i += 2){
             if ((moves.get(i) / 100) == x && (moves.get(i + 1) / 100) == y){
                 pieces.get(this.index).setX(moves.get(i));
-                pieces.get(this.index).setY(moves.get(i+1) + 80);
+                pieces.get(this.index).setY(moves.get(i + 1) + 80);
+                System.out.println("CLEAR");
+                moves.clear();
             }
         }
     }
