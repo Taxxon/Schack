@@ -69,7 +69,7 @@ public class Game {
                     switch (symbol) {
                         case ("♟"):
                         case ("♙"):
-                            this.moves = ((Pawn) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((Pawn) pieces.get(index)).getMoves(y, x, pieces);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♜"):

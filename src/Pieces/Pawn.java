@@ -34,21 +34,25 @@ public class Pawn extends Piece {
      * @param x value on x coordinate on piece that were pressed
      * @return arrayList with the (x,y) coordinates that the Piece can move to
      */
-    public ArrayList<Integer> getMoves(int y, int x){
+    public ArrayList<Integer> getMoves(int y, int x, ArrayList<Piece> pieces){
         ArrayList<Integer> moves = new ArrayList<>();
         if (getSymbol().equals("♟")){
-            moves.add(x);
-            moves.add(y - 1);
-            if (y == 6) {
+            if (checkPath(pieces, x, y - 1) == true) {
                 moves.add(x);
-                moves.add(y - 2);
+                moves.add(y - 1);
+                if (y == 6) {
+                    moves.add(x);
+                    moves.add(y - 2);
+                }
             }
         } else if (getSymbol().equals("♙")){
-            moves.add(x);
-            moves.add(y + 1);
-            if (y  == 1) {
+            if (checkPath(pieces, x, y + 1) == true) {
                 moves.add(x);
-                moves.add(y + 2);
+                moves.add(y + 1);
+                if (y == 1) {
+                    moves.add(x);
+                    moves.add(y + 2);
+                }
             }
         } else {
             System.out.println("ERROR");
