@@ -39,13 +39,17 @@ public class Pawn extends Piece {
         if (getSymbol().equals("♟")){
             moves.add(x);
             moves.add(y - 1);
-            moves.add(x);
-            moves.add(y - 2);
+            if (y == 6) {
+                moves.add(x);
+                moves.add(y - 2);
+            }
         } else if (getSymbol().equals("♙")){
             moves.add(x);
             moves.add(y + 1);
-            moves.add(x);
-            moves.add(y + 2);
+            if (y  == 1) {
+                moves.add(x);
+                moves.add(y + 2);
+            }
         } else {
             System.out.println("ERROR");
         }
