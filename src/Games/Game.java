@@ -84,7 +84,7 @@ public class Game {
                             break;
                         case ("♚"):
                         case ("♔"):
-                            this.moves = ((King) pieces.get(index)).getMoves(y, x);
+                            this.moves = ((King) pieces.get(index)).getMoves(y, x, pieces);
                             drawPath(g2, x, y, moves);
                             break;
                         case ("♛"):

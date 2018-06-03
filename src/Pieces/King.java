@@ -34,7 +34,7 @@ public class King extends Piece {
      * @param x value on x coordinate on piece that were pressed
      * @return arrayList with the (x,y) coordinates that the Piece can move to
      */
-    public ArrayList<Integer> getMoves(int y, int x){
+    public ArrayList<Integer> getMoves(int y, int x, ArrayList<Piece> pieces){
         ArrayList<Integer> moves = new ArrayList<>();
         int yStart = y;
         int xStart = x;
@@ -43,8 +43,10 @@ public class King extends Piece {
             y -= 1;
             for (int i = 0; i < 3; i++) {
                 if (y < 8 && y > -1) {
-                    moves.add(x);
-                    moves.add(y);
+                    if (checkPath(pieces, x, y) == true) {
+                        moves.add(x);
+                        moves.add(y);
+                    }
                 }
                 y += 1;
             }
@@ -56,19 +58,25 @@ public class King extends Piece {
             y -= 1;
             for (int i = 0; i < 3; i++) {
                 if (y < 8 && y > -1) {
-                    moves.add(x);
-                    moves.add(y);
+                    if (checkPath(pieces, x, y) == true) {
+                        moves.add(x);
+                        moves.add(y);
+                    }
                 }
                 y += 1;
             }
         }
         if ((yStart + 1) < 8 && (yStart + 1) > -1) {
-            moves.add(xStart);
-            moves.add(yStart + 1);
+            if (checkPath(pieces, xStart, yStart + 1) == true) {
+                moves.add(xStart);
+                moves.add(yStart + 1);
+            }
         }
         if ((yStart - 1) < 8 && (yStart - 1) > -1) {
-            moves.add(xStart);
-            moves.add(yStart - 1);
+            if (checkPath(pieces, xStart, yStart - 1) == true) {
+                moves.add(xStart);
+                moves.add(yStart - 1);
+            }
         }
         return moves;
     }
