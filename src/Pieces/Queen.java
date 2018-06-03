@@ -17,7 +17,7 @@ public class Queen extends Piece {
      * @param c color on Queen
      */
     public Queen(int x, int y, char c){
-        super(x, y);
+        super(x, y, c);
         if (c == 'b') {
             setSymbol('♛');
         }
@@ -41,7 +41,7 @@ public class Queen extends Piece {
         outerloop:
         while (x < 8) {
             x += 1;
-            if (checkPath(pieces, x, yStart) == false){
+            if (checkPath(pieces, x, yStart, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -51,7 +51,7 @@ public class Queen extends Piece {
         outerloop:
         while (x > -1) {
             x -= 1;
-            if (checkPath(pieces, x, yStart) == false){
+            if (checkPath(pieces, x, yStart, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -60,7 +60,7 @@ public class Queen extends Piece {
         outerloop:
         while (y < 8) {
             y += 1;
-            if (checkPath(pieces, xStart, y) == false){
+            if (checkPath(pieces, xStart, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(xStart);
@@ -70,7 +70,7 @@ public class Queen extends Piece {
         outerloop:
         while (y > -1) {
             y -= 1;
-            if (checkPath(pieces, xStart, y) == false){
+            if (checkPath(pieces, xStart, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(xStart);
@@ -82,7 +82,7 @@ public class Queen extends Piece {
         while ((x + 1) < 8 && (y - 1) > -1) {
             x += 1;
             y -= 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -94,7 +94,7 @@ public class Queen extends Piece {
         while ((x - 1) > -1 && (y - 1) > -1){
             x -= 1;
             y -= 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -106,7 +106,7 @@ public class Queen extends Piece {
         while ((x + 1) < 8 && (y + 1) < 8) {
             x += 1;
             y += 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -118,7 +118,7 @@ public class Queen extends Piece {
         while ((x - 1) > -1 && (y + 1) < 8){
             x -= 1;
             y += 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);

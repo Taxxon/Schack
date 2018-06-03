@@ -17,7 +17,7 @@ public class Knight extends Piece {
      * @param c color on Knight
      */
     public Knight(int x, int y, char c){
-        super(x, y);
+        super(x, y, c);
         if (c == 'b') {
             setSymbol('♞');
         }
@@ -38,13 +38,13 @@ public class Knight extends Piece {
         ArrayList<Integer> moves = new ArrayList<>();
         if (x + 2 < 8) {
             if(y + 1 < 8) {
-                if (checkPath(pieces, x + 2, y + 1) == true) {
+                if (checkPath(pieces, x + 2, y + 1, x, y) == true) {
                     moves.add(x + 2);
                     moves.add(y + 1);
                 }
             }
             if(y - 1 > -1) {
-                if (checkPath(pieces, x + 2, y - 1) == true) {
+                if (checkPath(pieces, x + 2, y - 1, x, y) == true) {
                     moves.add(x + 2);
                     moves.add(y - 1);
                 }
@@ -53,13 +53,13 @@ public class Knight extends Piece {
 
         if (x - 2 > -1){
             if(y + 1 < 8) {
-                if (checkPath(pieces, x - 2, y + 1) == true) {
+                if (checkPath(pieces, x - 2, y + 1, x, y) == true) {
                     moves.add(x - 2);
                     moves.add(y + 1);
                 }
             }
             if(y - 1 > -1) {
-                if (checkPath(pieces, x - 2, y - 1) == true) {
+                if (checkPath(pieces, x - 2, y - 1, x, y) == true) {
                     moves.add(x - 2);
                     moves.add(y - 1);
                 }
@@ -68,13 +68,13 @@ public class Knight extends Piece {
 
         if ((y + 2) < 8){
             if(x + 1 < 8) {
-                if (checkPath(pieces, x + 1, y + 2) == true) {
+                if (checkPath(pieces, x + 1, y + 2, x, y) == true) {
                     moves.add(x + 1);
                     moves.add(y + 2);
                 }
             }
             if((x - 1) > -1) {
-                if (checkPath(pieces, x - 1, y + 2) == true) {
+                if (checkPath(pieces, x - 1, y + 2, x, y) == true) {
                     moves.add(x - 1);
                     moves.add(y + 2);
                 }
@@ -83,13 +83,13 @@ public class Knight extends Piece {
 
         if (y - 2 > -1){
             if(x + 1 < 8) {
-                if (checkPath(pieces, x + 1, y - 2) == true) {
+                if (checkPath(pieces, x + 1, y - 2, x, y) == true) {
                     moves.add(x + 1);
                     moves.add(y - 2);
                 }
             }
             if(x - 1 > -1) {
-                if (checkPath(pieces, x - 1, y - 2) == true) {
+                if (checkPath(pieces, x - 1, y - 2, x, y) == true) {
                     moves.add(x - 1);
                     moves.add(y - 2);
                 }

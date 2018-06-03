@@ -17,7 +17,7 @@ public class King extends Piece {
      * @param c color on King
      */
     public King(int x, int y, char c){
-        super(x, y);
+        super(x, y, c);
         if (c == 'b') {
             setSymbol('♚');
         }
@@ -43,7 +43,7 @@ public class King extends Piece {
             y -= 1;
             for (int i = 0; i < 3; i++) {
                 if (y < 8 && y > -1) {
-                    if (checkPath(pieces, x, y) == true) {
+                    if (checkPath(pieces, x, y, xStart, yStart) == true) {
                         moves.add(x);
                         moves.add(y);
                     }
@@ -58,7 +58,7 @@ public class King extends Piece {
             y -= 1;
             for (int i = 0; i < 3; i++) {
                 if (y < 8 && y > -1) {
-                    if (checkPath(pieces, x, y) == true) {
+                    if (checkPath(pieces, x, y, xStart, yStart) == true) {
                         moves.add(x);
                         moves.add(y);
                     }
@@ -67,13 +67,13 @@ public class King extends Piece {
             }
         }
         if ((yStart + 1) < 8 && (yStart + 1) > -1) {
-            if (checkPath(pieces, xStart, yStart + 1) == true) {
+            if (checkPath(pieces, xStart, yStart + 1, xStart, yStart) == true) {
                 moves.add(xStart);
                 moves.add(yStart + 1);
             }
         }
         if ((yStart - 1) < 8 && (yStart - 1) > -1) {
-            if (checkPath(pieces, xStart, yStart - 1) == true) {
+            if (checkPath(pieces, xStart, yStart - 1, xStart, yStart) == true) {
                 moves.add(xStart);
                 moves.add(yStart - 1);
             }

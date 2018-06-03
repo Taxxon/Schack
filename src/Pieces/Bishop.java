@@ -17,7 +17,7 @@ public class Bishop extends Piece {
      * @param c color on Bishop
      */
     public Bishop(int x, int y, char c){
-        super(x, y);
+        super(x, y, c);
         if (c == 'b') {
             setSymbol('♝');
         }
@@ -42,7 +42,7 @@ public class Bishop extends Piece {
         while ((x + 1) < 8 && (y + 1) < 8) {
             x += 1;
             y += 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -54,7 +54,7 @@ public class Bishop extends Piece {
         while ((x - 1) > -1 && (y + 1) < 8){
             x -= 1;
             y += 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -66,7 +66,7 @@ public class Bishop extends Piece {
         while ((x + 1) < 8 && (y - 1) > -1){
             x += 1;
             y -= 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);
@@ -78,7 +78,7 @@ public class Bishop extends Piece {
         while ((x - 1) > -1 && (y - 1) > -1){
             x -= 1;
             y -= 1;
-            if (checkPath(pieces, x, y) == false){
+            if (checkPath(pieces, x, y, xStart, yStart) == false){
                 break outerloop;
             }
             moves.add(x);

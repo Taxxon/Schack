@@ -17,7 +17,7 @@ public class Pawn extends Piece {
      * @param c color on Pawn
      */
     public Pawn(int x, int y, char c) {
-        super(x, y);
+        super(x, y, c);
         if (c == 'b') {
             setSymbol('♟');
         }
@@ -37,7 +37,7 @@ public class Pawn extends Piece {
     public ArrayList<Integer> getMoves(int y, int x, ArrayList<Piece> pieces){
         ArrayList<Integer> moves = new ArrayList<>();
         if (getSymbol().equals("♟")){
-            if (checkPath(pieces, x, y - 1) == true) {
+            if (checkPath(pieces, x, y - 1, x, y) == true) {
                 moves.add(x);
                 moves.add(y - 1);
                 if (y == 6) {
@@ -46,7 +46,7 @@ public class Pawn extends Piece {
                 }
             }
         } else if (getSymbol().equals("♙")){
-            if (checkPath(pieces, x, y + 1) == true) {
+            if (checkPath(pieces, x, y + 1, x, y) == true) {
                 moves.add(x);
                 moves.add(y + 1);
                 if (y == 1) {
