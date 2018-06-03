@@ -34,49 +34,65 @@ public class Knight extends Piece {
      * @param x value on x coordinate on piece that were pressed
      * @return arrayList with the (x,y) coordinates the piece can move to
      */
-    public ArrayList<Integer> getMoves(int y, int x){
+    public ArrayList<Integer> getMoves(int y, int x, ArrayList<Piece> pieces){
         ArrayList<Integer> moves = new ArrayList<>();
         if (x + 2 < 8) {
             if(y + 1 < 8) {
-                moves.add(x + 2);
-                moves.add(y + 1);
+                if (checkPath(pieces, x + 2, y + 1) == true) {
+                    moves.add(x + 2);
+                    moves.add(y + 1);
+                }
             }
             if(y - 1 > -1) {
-                moves.add(x + 2);
-                moves.add(y - 1);
+                if (checkPath(pieces, x + 2, y - 1) == true) {
+                    moves.add(x + 2);
+                    moves.add(y - 1);
+                }
             }
         }
 
         if (x - 2 > -1){
             if(y + 1 < 8) {
-                moves.add(x - 2);
-                moves.add(y + 1);
+                if (checkPath(pieces, x - 2, y + 1) == true) {
+                    moves.add(x - 2);
+                    moves.add(y + 1);
+                }
             }
             if(y - 1 > -1) {
-                moves.add(x - 2);
-                moves.add(y - 1);
+                if (checkPath(pieces, x - 2, y - 1) == true) {
+                    moves.add(x - 2);
+                    moves.add(y - 1);
+                }
             }
         }
 
         if ((y + 2) < 8){
             if(x + 1 < 8) {
-                moves.add(x + 1);
-                moves.add(y + 2);
+                if (checkPath(pieces, x + 1, y + 2) == true) {
+                    moves.add(x + 1);
+                    moves.add(y + 2);
+                }
             }
             if((x - 1) > -1) {
-                moves.add(x - 1);
-                moves.add(y + 2);
+                if (checkPath(pieces, x - 1, y + 2) == true) {
+                    moves.add(x - 1);
+                    moves.add(y + 2);
+                }
             }
         }
 
         if (y - 2 > -1){
             if(x + 1 < 8) {
-                moves.add(x + 1);
-                moves.add(y - 2);
+                if (checkPath(pieces, x + 1, y - 2) == true) {
+                    moves.add(x + 1);
+                    moves.add(y - 2);
+                }
             }
             if(x - 1 > -1) {
-                moves.add(x - 1);
-                moves.add(y - 2);
+                if (checkPath(pieces, x - 1, y - 2) == true) {
+                    moves.add(x - 1);
+                    moves.add(y - 2);
+                }
             }
         }
 
