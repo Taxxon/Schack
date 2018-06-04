@@ -80,15 +80,15 @@ public abstract class Piece {
     }
 
     /**
-     * Checks if there is a piece in the way of the Path
-     * If there is it stops the path
-     * It also checks if they are the same color
-     * @param pieces
-     * @param x
-     * @param y
-     * @param xStart
-     * @param yStart
-     * @return
+     * Not done but works
+     * At the moment i checks if there is a piece in the way
+     * If there is canMove = false
+     * @param pieces ArrayList with pices
+     * @param x value on x coordinate were piece can move
+     * @param y value on y coordinate were piece can move
+     * @param xStart (not used) for getting piece anc check color
+     * @param yStart (not used) for getting piece anc check color
+     * @return boolean if it can move 
      */
     public boolean checkPath(ArrayList<Piece> pieces, int x, int y, int xStart, int yStart){
         boolean canMove = true;
