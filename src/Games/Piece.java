@@ -94,12 +94,7 @@ public abstract class Piece {
         boolean canMove = true;
         for (int i = 0; i < pieces.size(); i++) {
             if ((pieces.get(i).getX() / 100) == x && (pieces.get(i).getY() / 100) == y) {
-                for (int z= 0; z < pieces.size(); z++) {
-                    if ((pieces.get(z).getX() / 100) == xStart && (pieces.get(z).getY() / 100) == yStart) {
-                        if (pieces.get(z).getSymbol() == pieces.get(i).getSymbol())
-                            canMove = false;
-                }
-                }
+                canMove = false;
             }
         }
         return canMove;
